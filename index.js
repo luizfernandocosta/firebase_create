@@ -34,6 +34,16 @@ const handleSignUp = async (event) => {
         displayName: event.name, 
       })
 
+      return {
+        "name": auth.currentUser.displayName,
+        "email": auth.currentUser.email,
+        "phoneNumber": auth.currentUser.phoneNumber,
+        "photoURL": auth.currentUser.photoURL,
+        "refreshToken": auth.currentUser.stsTokenManager.refreshToken,
+        "expirationTime": auth.currentUser.stsTokenManager.expirationTime,
+
+      }
+
   } 
   catch (error) {
     return error.code
